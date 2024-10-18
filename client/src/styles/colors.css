@@ -1,0 +1,16 @@
+:root {
+  --color-primary: #726BDF;
+  --color-primary-10: #6B73D6;
+  --color-bg: #121215;
+  --color-text-default: #F5F5F5;
+  --color-text-10: #D1D1D1;
+  --color-text-gray: #7C7E89;
+  --color-gray-default: #1A1B1F;
+  --color-gray-10: #2E2E2E;
+  --color-gray-20: #242427;
+  --color-red: #D9534F;
+}
+
+.bg-gradient {
+  background-image: radial-gradient(50% 30% at 50% 100%, #8F7467FF 1%, #66485AFF 28%, #513451FF 49%, #121215 100%);
+}

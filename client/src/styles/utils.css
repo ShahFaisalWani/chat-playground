@@ -1,0 +1,33 @@
+@tailwind utilities;
+
+@layer utilities {
+  .border-gradient {
+    border: 1px solid transparent;
+    background: 
+      linear-gradient(to right, #121215, #121215), 
+      linear-gradient(90deg, #A77BE8 2.64%, #F0BFAA 39.56%, #E19EC8 69.51%, #6CA1C7 102.42%); 
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-bg rounded-lg;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-bg;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    @apply bg-bg;
+  }
+}

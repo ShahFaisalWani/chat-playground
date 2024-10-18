@@ -1,0 +1,30 @@
+@tailwind components;
+
+@layer components {
+  .-btn {
+    transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+    @apply flex justify-center items-center gap-2;
+    &:hover {
+      @apply md:text-primary;
+    }
+    &.red:hover {
+      @apply md:text-red-500;
+    }    
+  }
+
+  textarea {
+    @apply !outline-none !resize-none overflow-y-scroll;
+    &::-webkit-scrollbar {
+      @apply hidden;
+    }
+  }
+
+  .-input,
+  .-text-area {
+    @apply bg-bg rounded-xl p-4 border border-gray transition-all duration-100 outline-none;
+    &:hover,
+    &:focus {
+      @apply border-text-gray;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  server:
+      container_name: server
+      build:
+        context: ./server
+        dockerfile: Dockerfile
+      env_file:
+        - .env
+      environment:
+        - MONGO_URI=${MONGO_URI}
+        - OPENAI_API_KEY=${OPENAI_API_KEY}
+        - JWT_SECRET=${JWT_SECRET}
+      ports:
+        - "5001:5000"
+      depends_on:
+        - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+    env_file:
+        - .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+
+volumes:
+  mongo_data:
